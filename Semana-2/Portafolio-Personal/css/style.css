@@ -13,7 +13,7 @@ nav{
     /* border: solid red; */
     display: flex;
     justify-content: space-between;
-    margin: 80px 300px;
+    margin: 80px 200px;
 
 }
 
@@ -34,7 +34,7 @@ nav > div >p{
     /* border: solid green; */
     display: flex;
     list-style: none;
-    gap: 60px;
+    gap: 40px;
 
 }
 
@@ -55,7 +55,7 @@ main{
     /* border: solid red; */
     display: flex;
     justify-content: space-between;
-    margin: 200px 300px;
+    padding: 100px 250px 50px 250px;
 
 }
 
@@ -105,3 +105,119 @@ main{
     gap: 30px;
     align-items:end;
 }
+
+/* Estilos de la section SOBRE MI */
+
+
+.about-me > div  {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 250px 100px 250px;
+    /* border:  solid red; */
+   }
+
+.title-2{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 64px;
+    padding: 15px 0px 15px 0px;
+}
+
+span{
+    color:#263138;
+}
+
+.presentacion {
+    padding-bottom: 100px;
+}
+.presentacion > p{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.habilidades > div > p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 36px;
+    text-align: center;
+}
+
+.habilidades {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    padding-top: 50px;
+    /* border:  solid violet; */
+}
+
+.porfolio > div{
+        border: solid red;
+        display: flex;
+        justify-content:space-between;
+        flex-direction: column;
+        padding: 100px 250px 50px 250px;
+}
+
+.porfolio > div{
+    border: solid red;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    padding: 100px 250px 50px 250px;
+}
+
+.content-2 > div{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 30px;
+    /* border: solid yellow; */
+}
+
+h2{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 64px;
+}
+
+.content-2 > div > div > p{
+    /* border: solid yellow; */
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.btn-menu{
+display: flex;
+justify-content:flex-start;
+gap: 10px;
+
+padding: 100px 0px 100px 0px;
+
+}
+
+.btn-menu  buttom {
+    color: #445964;
+    background-color: #DFDFDF;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+
+}
+.btn-menu buttom:hover{
+    color: #fff;
+    background-color: #263138;
+}
+
