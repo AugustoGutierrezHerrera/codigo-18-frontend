@@ -7,13 +7,13 @@ body{
     font-family: helvetica, sans-serif;
     color: #445964;
     background-color: #FBFBFB;
+    padding: 100px 250px 100px 250px;
 }
 
 nav{
     /* border: solid red; */
     display: flex;
     justify-content: space-between;
-    margin: 80px 200px;
 
 }
 
@@ -55,8 +55,7 @@ main{
     /* border: solid red; */
     display: flex;
     justify-content: space-between;
-    padding: 100px 250px 50px 250px;
-
+    padding-top: 150px;
 }
 
 .title{
@@ -115,7 +114,7 @@ main{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 100px 250px 100px 250px;
+    padding-top: 150px;
     /* border:  solid red; */
    }
 
@@ -154,23 +153,22 @@ span{
     justify-content: space-between;
     gap: 60px;
     padding-top: 50px;
-    /* border:  solid violet; */
 }
 
+/* Section del portafolio */
+/* Section del portafolio */
+/* Section del portafolio */
 .porfolio > div{
-        border: solid red;
         display: flex;
         justify-content:space-between;
         flex-direction: column;
-        padding: 100px 250px 50px 250px;
+        padding-top: 150px;
 }
 
 .porfolio > div{
-    border: solid red;
     display: flex;
     justify-content:space-between;
     flex-direction: column;
-    padding: 100px 250px 50px 250px;
 }
 
 .content-2 > div{
@@ -200,7 +198,6 @@ h2{
 display: flex;
 justify-content:flex-start;
 gap: 10px;
-
 padding: 100px 0px 100px 0px;
 
 }
@@ -209,7 +206,7 @@ padding: 100px 0px 100px 0px;
     color: #445964;
     background-color: #DFDFDF;
     border-radius: 15px;
-    padding: 10px;
+    padding: 15px;
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -221,3 +218,164 @@ padding: 100px 0px 100px 0px;
     background-color: #263138;
 }
 
+.proyectos > div{
+    display:grid;
+    grid-template-areas:     
+    "proyect1 proyect2 proyect3"
+    "proyect4 proyect5 proyect6"    
+    ;
+    justify-content: center;
+    gap: 20px;
+    
+}   
+
+.grid1{
+    width: 340px;
+    height: 190px;
+    background-color:#263138;
+    border-radius: 20px;
+    grid-area: proyect1;
+    margin-bottom: 30px;   
+}
+
+.grid2{
+    width: 340px;
+    height: 250px;
+    background-color: #445964;
+    border-radius: 20px;
+    grid-area: proyect2;
+    margin-bottom: 30px; 
+}
+
+.grid3{
+    width: 340px;
+    height: 190px;
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    grid-area: proyect3;
+    margin-bottom: 30px;    
+}
+
+.grid4{
+    width: 340px;
+    height: 250px;
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    grid-area: proyect4;
+}
+
+.grid5{
+    width: 340px;
+    height: 190px;
+    background-color: #263138;
+    border-radius: 20px;
+    grid-area: proyect5;
+    
+}
+
+.grid6{
+    width: 340px;
+    height: 250px;
+    background-color: #445964;
+    border-radius: 20px;
+    grid-area: proyect6;
+}
+
+/* Section de tecnologias*/
+
+.tecnologias > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.tecnologias p{
+    padding-top: 100px;
+}
+
+.tec-1 > div{
+display: flex;
+gap: 80px;
+padding-top: 20px;
+/* border: solid green; */
+}
+
+h3{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 26px;
+}
+
+/* section experiencia */
+/* section experiencia */
+/* section experiencia */
+
+.caja1 > div{
+    display:flex;
+    /* justify-content:flex-end; */
+    flex-direction:row-reverse;
+    align-items:end;
+    /* border: solid rebeccapurple; */
+    padding-top: 150px;
+    gap: 80px;
+}
+
+.caja1 p{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    padding-bottom: 2.5px;
+    text-align: end;
+    
+}
+
+.caja2 > div{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 100px;
+}
+
+.cargo1{
+    width: 400px;
+    background-color: #263138;
+    color: #FBFBFB;
+    text-align: center;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.cargo2{
+    width: 400px;
+    background-color: #445964;
+    color: #FBFBFB;
+    text-align: center;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.caja3 > div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* border: solid blue; */
+    padding-top: 100px;
+
+}
+
+.caja3 p{
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    padding-bottom: 2.5px;
+}
+.caja3 h3{
+    padding-top: 5px;
+}
