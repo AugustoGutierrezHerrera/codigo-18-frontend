@@ -7,26 +7,32 @@ const percentages = [
   {
     type: "button",
     value: "5%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "10%",
+    isCheck: false,
   },
   {
     type: "button",
-    value: "20%",
+    value: "15%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "25%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "50%",
+    isCheck: false,
   },
   {
     type: "input",
     value: "0",
+    isCheck: false,
   },
 ];
 
@@ -49,26 +55,48 @@ inputBill.onkeyup = function (event) {
   }
 };
 
-function renderButton(text) {
-  return `<button>${text}</button>`;
+function setButtonTip(element) {
+  const buttonIndex = element.dataset.index; // 5% index = 0
+  percentages[buttonIndex].isCheck = true;
+
+  for (let percentage in percentages) {
+    if (percentage !== buttonIndex) {
+      percentages[percentage].isCheck = false;
+    }
+  }
+
+  renderPercentagesButtons(percentages);
 }
 
-function renderInput() {
+function renderButton(percentage, index) {
+  const extraClass = percentage.isCheck ? "active" : "";
+
+  return `
+    <button onclick="setButtonTip(this)" class="${extraClass}" data-index="${index}">
+      ${percentage.value}
+    </button>`;
+}
+
+function renderInput(index) {
   return `<input
             type="text"
+            id="input-percentage-${index}"
             class="outline-none p-2 bg-[#F3F8FB] rounded-md"
             placeholder="Custom"
           />`;
 }
 
-// paso 1 es limpiar el contenido del container
-containerPercentages.innerHTML = "";
+function renderPercentagesButtons(percentagesArray) {
+  containerPercentages.innerHTML = "";
 
-percentages.forEach(function (percentage) {
-  const html =
-    percentage.type === "button"
-      ? renderButton(percentage.value)
-      : renderInput();
+  percentagesArray.forEach(function (percentage, index) {
+    const html =
+      percentage.type === "button"
+        ? renderButton(percentage, index)
+        : renderInput(index);
 
-  containerPercentages.innerHTML += html;
-});
+    containerPercentages.innerHTML += html;
+  });
+}
+
+renderPercentagesButtons(percentages);
