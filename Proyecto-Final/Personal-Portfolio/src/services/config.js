@@ -1,0 +1,1 @@
+export const BASE_URL = "https://66318dfdc51e14d69561f522.mockapi.io/contact_form"
