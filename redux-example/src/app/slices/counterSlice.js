@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Un slice es un conjuntos de variables y funciones
 const counterSlice = createSlice({
-    name: "counter",
-    initialState:{
-        value: 0, //Solo esta parte es el currentState
+  name: "counter",
+  initialState: {
+    value: 100,
+  },
+  reducers: {
+    increment: (currentState) => {
+      currentState.value += 1;
     },
-    reducers:{
-        increment:(currentState)=>{
-            currentState.value += 1
-        },
-        decrement:(currentState)=>{
-            currentState.value -= 1
-        },
+    decrement: (currentState) => {
+      currentState.value -= 1;
+    },
+    setValue: (currentState, action) => {
+      console.log(action.payload);
+      currentState.value = action.payload.newValue;
+    },
+  },
+});
 
-        setValue:(currentState, action) =>{
-            currentState.value = action.payload
-        }
-    }
-})
+// Para poder exportar las funciones que estan dentro del slice dentro usar la propiedad actions
+// export const incrementReducers = counterSlice.actions.increment;
+// export const descrementReducers = counterSlice.actions.decrement;
 
-//Para poder exportar las funciones que estan dentro del slice se debe de usar la propiedad actions
-// export const incrementReducers= counterSlice.actions.increment
+// Usamos destrucuracion para evitar crear tantas variables
+export const { increment, decrement, setValue } = counterSlice.actions;
 
-// Usamos destructuracuib para evitar crear tantas variables
-export const { increment, decrement,setValue } = counterSlice.actions;
-
-
-
-//para poder usar esto dentro del store, debo exportarlo como reducer
-export const couterSliceReducer = counterSlice.reducer
+// Para poder usar esto dentro del store, debo exportarlo como un reducer
+export const counterSliceReducer = counterSlice.reducer;

@@ -5,28 +5,23 @@ import instagram from "../../assets/presentation/instagram.svg";
 import { useState } from "react";
 import { createDataForm } from "../../services/httpAPI.js";
 
-
 export default function Footer(props) {
-  
   const handleFormSubmit = async (e) => {
     // No actualiza la pagina
     e.preventDefault();
 
     const contactData = {
-       name:  props.formData.nameInput,
-       email: props.formData.emailInput,
-       cell: props.formData.cellInput,
-       message: props.formData.messageInput,
+      name: props.formData.nameInput,
+      email: props.formData.emailInput,
+      cell: props.formData.cellInput,
+      message: props.formData.messageInput,
+    };
+    // Opcion envio a mockapi #1
+    // createDataForm(contactData);
 
-    }
-      // Opcion envio a mockapi #1
-      // createDataForm(contactData);
-
-      //Opcion envio a mockapi #2
-      await props.handleListContetForm(contactData)
-      console.log(contactData)
-    
-
+    //Opcion envio a mockapi #2
+    await props.handleListContetForm(contactData);
+    console.log(contactData);
   };
 
   const underlineStyle = {
@@ -36,21 +31,24 @@ export default function Footer(props) {
 
   return (
     <section id="footer-section">
-      <div >
+      <div>
         <hr className=" border border-custom-484848" />
       </div>
-      <div className="flex gap-10 pt-20 pb-20" >
-        <div className="w-1/2 flex flex-col" >
+      <div className="flex gap-10 pt-20 pb-20">
+        <div className="w-1/2 flex flex-col">
           <div>
             <h2 className="text-white font-bebasNeue text-7xl">Contactame</h2>
           </div>
           <div>
             <p className="text-custom-C7C7C7 font-manrope text-base pt-3">
-              Mi correo de contacto: <span className="text-white " style={underlineStyle}>robertgarcia@gmail.com
+              Mi correo de contacto:{" "}
+              <span className="text-white " style={underlineStyle}>
+                robertgarcia@gmail.com
               </span>
             </p>
             <p className=" text-custom-C7C7C7 font-manrope text-base">
-              Para mas información, aqui esta mi <span className="text-white" style={underlineStyle}>
+              Para mas información, aqui esta mi{" "}
+              <span className="text-white" style={underlineStyle}>
                 resumen
               </span>
             </p>
@@ -76,7 +74,7 @@ export default function Footer(props) {
             </label>
             <input
               id="name"
-              name="nameInput"//para que sirve nameFer*33
+              name="nameInput" //para que sirve nameFer*33
               type="text"
               onChange={props.handleInputChange}
               value={props.formData.nameInput}
@@ -100,7 +98,7 @@ export default function Footer(props) {
             <label className="text-custom-C7C7C7 font-manrope text-base pb-1">
               Teléfono
             </label>
-            <input              
+            <input
               id="telefono"
               name="cellInput"
               type="text"
@@ -113,7 +111,7 @@ export default function Footer(props) {
             <label className="text-custom-C7C7C7 font-manrope text-base pb-1">
               Mensaje
             </label>
-            <textarea            
+            <textarea
               id="message"
               name="messageInput"
               type="message"
@@ -124,7 +122,9 @@ export default function Footer(props) {
               className="w-[450px] h-[51px] bg-custom-1A1A1A  mb-6 text-custom-C7C7C7 font-manrope text-base px-5 pt-3 focus:outline-none"
             />
             <div>
-            <button className="text-custom-0A0A0A bg-custom-D3E97A font-manrope font-bold text-base px-7 py-3 rounded-3xl  uppercase">Enviar</button>
+              <button className="text-custom-0A0A0A bg-custom-D3E97A font-manrope font-bold text-base px-7 py-3 rounded-3xl  uppercase">
+                Enviar
+              </button>
             </div>
           </form>
         </div>
