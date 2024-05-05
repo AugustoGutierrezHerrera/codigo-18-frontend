@@ -3,7 +3,7 @@ import { storeFile } from "../../services/storage";
 import { TextField } from "../../components";
 import { useRef, useState } from "react";
 
-export default function SignUp() {
+export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState({
     fullName: "",

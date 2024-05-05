@@ -6,7 +6,7 @@ import perfil from "../../assets/presentation/perfil.svg";
 export default function Presentation() {
 
 //Función Click
- const handleClick2 = () => {
+ const handleClick = () => {
   //Busca
   const sectionFooter = document.getElementById('footer-section')
   sectionFooter.scrollIntoView({behavior:'smooth'})
@@ -31,7 +31,7 @@ export default function Presentation() {
         <div className="flex items-center gap-4 pt-10">
           <div>
             <button
-            onClick={handleClick2}
+            onClick={handleClick}
             className="
             flex items-center 
             justify-center

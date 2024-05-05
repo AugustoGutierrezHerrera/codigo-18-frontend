@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import { createDataForm } from "../../services/httpAPI.js";
-
-import { Navbar, Presentation, AboutMi, Footer } from "../../components";
+import { Presentation, Footer } from "../../components";
+import { AboutMe } from "../../components/About/index.js";
 
 import { db } from "../../Config/Firebase.js";
 
@@ -76,7 +75,6 @@ export default function Home() {
 
   return (
     <>
-      
       <Presentation />
       <div>
         <hr className="border border-custom-484848" />
@@ -136,12 +134,23 @@ export default function Home() {
         ))} */}
       </div>
 
-      <AboutMi />
+      <AboutMe>
+        <div className=" pb-60">
+          <p className="text-custom-D3E97A font-manrope uppercase underline">
+            More about me
+          </p>
+        </div>
+      </AboutMe>
+      
       {/* Opcion envio a mockapi #1 */}
       {/* <Footer formData={formData} handleInputChange={handleInputChange}/> */}
 
       {/* Opcion envio a mockapi #2 */}
-      <Footer formData={formData} handleInputChange={handleInputChange} handleListContetForm={handleListContetForm}/>
+      <Footer
+        formData={formData}
+        handleInputChange={handleInputChange}
+        handleListContetForm={handleListContetForm}
+      />
     </>
   );
 }

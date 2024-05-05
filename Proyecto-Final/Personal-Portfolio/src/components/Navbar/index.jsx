@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom"
 
+export default function Navbar(){
 
-export default function Navbar(props){
+    //Función Click
+ const handleClick = () => {
+    //Busca
+    const sectionFooter = document.getElementById('footer-section')
+    sectionFooter.scrollIntoView({behavior:'smooth'})
+ }
+
     return(
         <div className="flex justify-between py-3">
             <div>
@@ -8,10 +16,10 @@ export default function Navbar(props){
             </div>
             <div >
                 <ul className="flex gap-8 list-none" >
-                    <li><a className="font-inter text-xs text-textColor" href="">Portafolio</a></li>
-                    <li><a className="font-inter text-xs text-textColor" href="">Sobre mí</a></li>
-                    <li><a className="font-inter text-xs text-textColor" href="">Contacto</a></li>
-                    <li><a className="font-inter text-xs text-textColor" href="/login">Login</a></li>
+                    <li><a className="font-inter text-xs text-textColor" ><Link to={"/"}>Portafolio</Link> </a></li>
+                    <li><a className="font-inter text-xs text-textColor" ><Link to={"/about"}>Sobre Mí</Link> </a></li>
+                    <li><a className="font-inter text-xs text-textColor cursor-pointer" onClick={handleClick}>Contacto</a></li>
+                    <li><a className="font-inter text-xs text-textColor"><Link to={"/login"}>Login</Link> </a></li>
                 </ul>
             </div>
         </div>
