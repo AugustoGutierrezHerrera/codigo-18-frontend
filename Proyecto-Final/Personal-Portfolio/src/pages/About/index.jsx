@@ -1,5 +1,5 @@
 import { Footer } from "../../components";
-import { AboutMe, Capabilities } from "../../components/About";
+import { AboutMe, Capabilities, Experience } from "../../components/About";
 import { useState } from "react";
 
 import linkedin from "../../assets/presentation/linkedin.svg";
@@ -81,6 +81,8 @@ export default function AboutPage() {
       </div>
 
       <Capabilities />
+      <Experience />
+
 
       <Footer
         formData={formData}
