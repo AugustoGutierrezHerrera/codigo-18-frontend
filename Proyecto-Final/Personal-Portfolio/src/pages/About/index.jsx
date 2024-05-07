@@ -1,12 +1,15 @@
 import { Footer } from "../../components";
 import { AboutMe, Capabilities, Experience } from "../../components/About";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { getDataUser } from "../../services/getData";
 
 import linkedin from "../../assets/presentation/linkedin.svg";
 import githab from "../../assets/presentation/githab.svg";
 import sobreMi from "../../assets/about/sobreMi.svg";
 
 export default function AboutPage() {
+  
   const [formData, setFormData] = useState({
     nameInput: "",
     emailInput: "",
@@ -22,16 +25,20 @@ export default function AboutPage() {
     }));
   };
 
+
+  const usersList = getDataUser("Users_List");
+
   //Opcion envio a mockapi #2
   const handleListContetForm = async (formData) => {
     createDataForm(formData);
   };
 
+  
   return (
     <>
-      <AboutMe>
-        <div className="pb-20">
-          <div className="flex items-center gap-4 pt-10">
+      <AboutMe usersList={usersList}>
+        <div className="pb-24">
+          <div className="flex items-center gap-4">
             <div>
               <button
                 className="
@@ -80,11 +87,12 @@ export default function AboutPage() {
         <img src={sobreMi} alt="" />
       </div>
 
-      <Capabilities />
+      <Capabilities usersList={usersList}/>
       <Experience />
 
 
       <Footer
+        usersList={usersList}
         formData={formData}
         handleInputChange={handleInputChange}
         handleListContetForm={handleListContetForm}

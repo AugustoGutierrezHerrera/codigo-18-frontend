@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate  } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "../../services/auth";
 

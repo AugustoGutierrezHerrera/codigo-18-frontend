@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage, LoginPage, SignUpPage,AboutPage } from "../pages";
-import { AuthLayout, MainLayout } from "../layouts";
+import { HomePage, LoginPage, SignUpPage,AboutPage, FormPage } from "../pages";
+import { AuthLayout, MainLayout, FormLayout } from "../layouts";
 
 export default function Router() {
   return (
@@ -9,6 +9,10 @@ export default function Router() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage/>}></Route>
           <Route path="/about" element={<AboutPage/>}></Route>
+        </Route>
+
+        <Route element={<FormLayout/>} >
+          <Route path="/form" element={< FormPage/>}></Route>
         </Route>
 
         <Route element={<AuthLayout />}>

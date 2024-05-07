@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 
 export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
+  
   const [values, setValues] = useState({
     fullName: "",
     email: "",

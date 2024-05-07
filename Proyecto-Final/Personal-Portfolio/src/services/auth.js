@@ -59,7 +59,7 @@ export function getCurrentUser() {
 export async function updateUser(name, photoURL) {
   const currentUser = auth.currentUser;
 
-  const user = await updateProfile(createUser, {
+  const user = await updateProfile(currentUser, {
     displayName: name,
     photoURL: photoURL,
   });

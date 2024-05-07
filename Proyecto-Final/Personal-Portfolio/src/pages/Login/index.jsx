@@ -1,30 +1,41 @@
 import { useState } from "react";
-import { createUser } from "../../services/auth";
+import { useNavigate } from "react-router-dom";
+import { signIn } from "../../services/auth";
 import { TextField } from "../../components";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
-  // const [values, setValues] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+  const navigate = useNavigate();
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setValues({
-  //     ...values,
-  //     [name]: value,
-  //   });
-  // };
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   await createUser(values.email, values.password);
-  //   setValues({
-  //     email: "",
-  //     password: "",
-  //   });
-  //};
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await signIn(values.email, values.password);
+
+      navigate("/");
+
+      setValues({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -44,11 +55,13 @@ export default function LoginPage() {
             </h2>
           </div>
 
-          <form  className="my-5">
+          <form onSubmit={handleSubmit} className="my-5" >
             <div className="my-5">
               <TextField
                 type="email"
                 name="email"
+                value={values.email}
+                onChange={handleInputChange}
                 placeholder="Ingresa tu correo"
               />
             </div>
@@ -56,6 +69,8 @@ export default function LoginPage() {
               <TextField
                 type="password"
                 name="password"
+                value={values.password}
+                onChange={handleInputChange}
                 placeholder="Ingresa tu password"
               />
             </div>
@@ -67,7 +82,7 @@ export default function LoginPage() {
               rounded-md
             text-white
             bg-custom-1A1A1A
-              border-dashed
+              border
               border-custom-D3E97A
               font-manrope
               font-bold
@@ -90,7 +105,7 @@ export default function LoginPage() {
             font-manrope
             text-base "
             >
-              ¿No tienes una cuenta?
+              ¿No tienes una cuenta? &nbsp;
               <Link
                 className="underline hover:text-custom-C7C7C7"
                 to={"/signup"}
