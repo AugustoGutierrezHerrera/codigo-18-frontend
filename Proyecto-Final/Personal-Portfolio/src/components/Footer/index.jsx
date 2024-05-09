@@ -155,7 +155,7 @@ export default function Footer(props) {
             <textarea
               id="message"
               name="messageInput"
-              type="message"
+              type="text"
               rows={4}
               onChange={props.handleInputChange}
               value={props.formData.messageInput}

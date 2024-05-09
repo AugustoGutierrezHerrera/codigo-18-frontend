@@ -1,10 +1,10 @@
-export default function TextField(props){
+export default function TextArea(props){
 
-    const {type, name,value,onChange, placeholder} = props
+    const {type, name,value,onChange, placeholder,rows,onClick} = props
 
     return(
         <div className="my-5">
-              <input
+              <textarea
                 name={name}
                 type={type}
                 onChange={onChange}

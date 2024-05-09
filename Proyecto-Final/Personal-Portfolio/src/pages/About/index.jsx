@@ -33,6 +33,10 @@ export default function AboutPage() {
     createDataForm(formData);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll al inicio de la página al cargar
+  }, []);
+
   
   return (
     <>

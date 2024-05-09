@@ -1,4 +1,12 @@
+import ProyectForm from "../../components/From/Proyects";
+import { getDataUser } from "../../services/getData";
+
 export default function FormPage() {
+
+  const proyects = getDataUser("Proyects");
+  console.log("recibo lo de proyects");
+  console.log(proyects);
+
   return (
     <>
       <div className="flex pt-20 gap-3">
@@ -22,7 +30,7 @@ export default function FormPage() {
           </nav>
         </div>
         <div className="bg-custom-1A1A1A w-10/12">
-<h4>Hola</h4>
+          <ProyectForm proyects={proyects}/>
         </div>
       </div>
     </>

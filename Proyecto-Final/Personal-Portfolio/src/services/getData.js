@@ -24,18 +24,31 @@ export function getDataUser(collectiondb) {
         await fetchUser();
         
         const proyectsRef = collection(db, collectiondb);
+        let consult;
         // console.log(collectiondb)
-
-
-        const consult = query(proyectsRef);
-        // const consult = query(proyectsRef, where("user_id", `==` , user.uid));
+    if(user){           
+      
+       consult = query(proyectsRef, where("user_id", `==` , user.uid));
         // console.log(user.iud) //Solo si hay un usuario imprimiria.
 
+    }else{
+       consult = query(proyectsRef);
+    }
         const querySnapshot = await getDocs(consult);
 
-        const proyectsTmp = querySnapshot.docs.map((doc) => doc.data());
+        // const proyectsTmp = querySnapshot.docs.map((doc) => doc.data());
+        const proyectsTmp = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
 
         setProyects(proyectsTmp);
+       console.log("Documento Id")
+         console.log(proyects)
+      // if (proyectsTmp.length > 0) {
+      //   console.log("Documento Id:", querySnapshot.docs[0].id);
+      // }
+
       } catch (error) {
         console.log(error);
       }

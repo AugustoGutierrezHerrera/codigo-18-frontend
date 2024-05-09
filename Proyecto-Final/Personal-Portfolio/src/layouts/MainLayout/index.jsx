@@ -4,10 +4,7 @@ import { getDataUser } from "../../services/getData.js";
 
 export default function MainLayout() {
 
-  const usersList = getDataUser("Users_List");
-
-
-  
+  const usersList = getDataUser("Users_List")  
   return (
     <>
       <div>

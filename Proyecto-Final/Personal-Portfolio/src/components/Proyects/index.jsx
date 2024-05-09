@@ -33,7 +33,7 @@ export default function Proyects(props) {
               <hr className="border-custom-484848" />
               <div className="py-2 flex justify-between">
                 <p className="text-white text-sm font-manrope">Cliente</p>
-                <p className="text-custom-C7C7C7 text-sm">
+                <p className="text-custom-C7C7C7 text-sm">  
                   {doc.proyect_client}
                 </p>
               </div>

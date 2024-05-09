@@ -11,8 +11,8 @@ export default function Home() {
   console.log(proyects);
 
   const usersList = getDataUser("Users_List");
-  console.log("recibo lo de usuarios");
-  console.log(usersList);
+  // console.log("recibo lo de usuarios");
+  // console.log(usersList);
 
   const [formData, setFormData] = useState({
     nameInput: "",
