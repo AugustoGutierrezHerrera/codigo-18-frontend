@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-
 import { db } from "./firebase";
-import { collection, query, getDocs, where } from "firebase/firestore";
+import { collection, query, getDocs, where, addDoc } from "firebase/firestore";
 import { getCurrentUser } from "./auth";
 
 export function getDataUser(collectiondb) {
@@ -57,4 +56,15 @@ export function getDataUser(collectiondb) {
   }, [user]);
 
   return proyects;
+}
+
+export async function inputDataUser(collectiondb, proyectData){
+  try {
+    // Agrega los datos del proyecto a la colección "proyects" en Firestore
+    await addDoc(collection(db, collectiondb), proyectData);
+
+    // Opcional: Puedes mostrar una notificación o redirigir a otra página
+  } catch (error) {
+    console.error("Error al guardar los datos:", error);
+  }
 }

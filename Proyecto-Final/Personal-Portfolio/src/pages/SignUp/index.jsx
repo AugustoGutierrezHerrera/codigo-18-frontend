@@ -2,10 +2,12 @@ import { createUser, updateUser } from "../../services/auth";
 import { storeFile } from "../../services/storage";
 import { TextField } from "../../components";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
-  
+  const navigate =     useNavigate()
+
   const [values, setValues] = useState({
     fullName: "",
     email: "",
@@ -30,13 +32,16 @@ export default function SignUpPage() {
 
     // Se crea el usuario en Firebase
     await createUser(values.email, values.password);
-    setValues({ email: "", password: "" });
+    // setValues({ email: '', password: '' }); //Este warning indica que estás cambiando un input controlado para que sea no controlado,
 
     // Se actualiza el nombre de usuario y foto de perfil
     await updateUser(values.fullName, url);
+   
 
     //Se deshabilitado IsLoading
     setIsLoading(false);
+    navigate("/")
+    
   };
 
   const imageInput = useRef(null);
@@ -128,21 +133,21 @@ export default function SignUpPage() {
                 type="Submit"
                 className="
                 flex items-center justify-center
-              px-5
-              py-2
-              rounded-md
+                px-5
+                py-2
+                rounded-md
               text-white
-             bg-custom-1A1A1A
-              border
-              border-custom-D3E97A
-              font-manrope
-              font-bold
-              text-lg
-              w-full
-              hover:bg-custom-D3E97A
-              hover:text-custom-1A1A1A
-              hover:font-bold
-              transition-all ease-out duration-300}"
+              bg-custom-1A1A1A
+                border
+               border-custom-D3E97A
+               font-manrope
+                font-bold
+                text-lg
+                w-full
+                hover:bg-custom-D3E97A
+                hover:text-custom-1A1A1A
+                hover:font-bold
+                transition-all ease-out duration-300}"
               >
                 {isLoading && (
                   <svg

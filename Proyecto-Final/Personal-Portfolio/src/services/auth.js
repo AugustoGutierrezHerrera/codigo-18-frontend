@@ -40,6 +40,16 @@ export async function signIn(email, password) {
   }
 }
 
+export async function signOut (){
+  try {
+    await auth.signOut()
+    return true
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+    return false;
+  }
+}
+
 //Consulta si hay un usuario con sesion
 export function getCurrentUser() {
   return new Promise((resolve, reject) => {

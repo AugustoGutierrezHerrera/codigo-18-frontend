@@ -1,16 +1,29 @@
+import { inputDataUser } from "../../../services/getData";
 import TextArea from "../../TextArea";
 import TextField from "../../TextField";
 
 export default function ProyectForm(props) {
+
+
+const handleSubmit = async(event) =>{
+  event.preventDefault();
+   const formDate = new FormData(event.target)
+   const proyectData = Object.fromEntries(formDate.entries())   
+  inputDataUser("Proyects", proyectData)
+       // Limpia los campos del formulario después de enviar
+       //event.target.reset();
+}
+
+
   return (
     <div className="flex flex-col justify-center items-center py-10 ">
       <div className="w-3/5  py-5 ">
-        <form className="my-5 ">
+        <form onSubmit={handleSubmit} className="my-5 ">
           <div className="my-5">
             <TextField
               type="text"
               name="proyect_title"
-              placeholder="Ingresa un Título"
+              placeholder="Ingresa un Título"prueba
             />
           </div>
           <div className="my-5">
@@ -38,13 +51,13 @@ export default function ProyectForm(props) {
               className="appearance-none border border-gray-300 rounded-md  mr-2 w-40"
             />
           </div>
-          <div className="my-5">
+          {/* <div className="my-5">
             <TextField
               type="file"
               name="proyect_title"
               placeholder="Ingresa una Foto"
             />
-          </div>
+          </div> */}
           <div className="my-5">
             <TextField
               type="url"

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { getCurrentUser } from "../../services/auth";
+import { getCurrentUser, signOut } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
-
 
   const [user, setUser] = useState(null);
 
@@ -28,19 +27,26 @@ export default function Navbar(props) {
     sectionFooter.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Cerrar Sesion y redirecciona al Home
+  const handleSignOut = async () => {
+    const success = await signOut(); // Llama a la función de cierre de sesión desde el módulo auth.js
+    if (success) {
+      setUser(null); // Actualiza el estado del usuario si el cierre de sesión fue exitoso
+      navigate("/"); // Redirige a la página de inicio de sesión u otra página
+    }
+  };
+
   return (
     <div className="flex justify-between items-center py-5">
       <div className="flex items-center gap-4">
-      
-        {!user && ( props.usersList.map((doc, index) => ( 
-         
-          <div key={index}>
-            <p className="font-bebasNeue text-xl text-textColor">
-            {doc.userList_name}{" "}{doc.userList_astName}
-            </p>
-          </div>
-        
-      )))}
+        {!user &&
+          props.usersList.map((doc, index) => (
+            <div key={index}>
+              <p className="font-bebasNeue text-xl text-textColor">
+                {doc.userList_name} {doc.userList_astName}
+              </p>
+            </div>
+          ))}
         {user && (
           <div className="flex items-center gap-2">
             <div>
@@ -62,12 +68,18 @@ export default function Navbar(props) {
       <div>
         <ul className="flex gap-8 list-none">
           <li>
-            <a onClick={() =>navigate("/")} className="font-inter text-sm text-custom-C7C7C7 cursor-pointer  hover:text-white hover:underline">              
+            <a
+              onClick={() => navigate("/")}
+              className="font-inter text-sm text-custom-C7C7C7 cursor-pointer  hover:text-white hover:underline"
+            >
               Portafolio
             </a>
           </li>
           <li>
-            <a onClick={() => navigate("/about")} className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline">
+            <a
+              onClick={() => navigate("/about")}
+              className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline"
+            >
               Sobre Mi
             </a>
           </li>
@@ -79,16 +91,35 @@ export default function Navbar(props) {
               Contacto
             </a>
           </li>
-          <li>
-            <a onClick={() => navigate("/form")} className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline">
-              Configuración
-            </a>
-          </li>
-          <li>
-            <a onClick={() => navigate("/login")} className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline">
-            Login            
-            </a>
-          </li>
+          {user && (
+            <li>
+              <a
+                onClick={() => navigate("/form")}
+                className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline"
+              >
+                Configuración
+              </a>
+            </li>
+          )}
+          {user ? (
+            <li>
+              <a
+                onClick={handleSignOut}
+                className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline"
+              >
+                Cerrar Sesión
+              </a>
+            </li>
+          ) : (
+            <li>
+              <a
+                onClick={() => navigate("/login")}
+                className="font-inter text-sm text-custom-C7C7C7 cursor-pointer hover:text-white hover:underline"
+              >
+                Login
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
